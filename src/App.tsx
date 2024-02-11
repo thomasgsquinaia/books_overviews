@@ -1,14 +1,14 @@
 import './App.css'
 import { Card } from './components/Card/card'
-import { BookData } from './interface/BookData'
+import { useBookData } from './hooks/useBookData';
 
 function App() {
-  const data: BookData[] = []
+  const { data } = useBookData();
   return (
     <div className='container'>
       <h1>Biblioteca</h1>
       <div className="card-grid">
-        {data.map(bookData => 
+        {data?.map(bookData => 
         <Card 
           title={bookData.title} 
           description={bookData.description} 
