@@ -19,6 +19,7 @@
     position: fixed;
     bottom: 16px;
     right: 24px;
+    font-size: 30px;
     transition: all 0.1s linear 0.1s;
 }
 
