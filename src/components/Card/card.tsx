@@ -1,18 +1,17 @@
-import React from 'react'
 import "./card.css"
 
 interface CardProps { 
-  title: string,
+  name: string,
   description: string
   image: string,
 }
 
-export function Card({title, description, image} : CardProps) {
+export function Card({name, description, image} : CardProps) {
   return (
     <div className="card">
-        <img src="" alt="" />
-        <h2></h2>
-        <p><b>Descrição:</b></p>
+        <img src={image} alt="" />
+        <h2>{name}</h2>
+        <p><b>Descrição:</b>{description}</p>
     </div>
   )
 }

@@ -15,4 +15,8 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  rules: {
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+
 }

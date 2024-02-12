@@ -1,6 +1,7 @@
 export interface BookData {
-    id: number,
-    title: string,
-    description:string,
-    image: string
+    id?: number,
+    name: string,
+    description:string | any,
+    image: string,
+    active?: boolean
 }
