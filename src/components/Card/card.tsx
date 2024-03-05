@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useBookDataUpdate } from "../../hooks/useBookDataUpdate"
 import "./card.css"
 import { UpdateModal } from "../updateModal/updateModal";
 
@@ -10,9 +9,7 @@ interface CardProps {
 }
 
 export function Card({name, description, image} : CardProps) {
-  const { data } = useBookDataUpdate();
   const [isModalOpen, setIsModalOpen] = useState(false)
-  console.log(data);
 
   const handleOpenModal = () => { 
     setIsModalOpen(prev => !(prev))

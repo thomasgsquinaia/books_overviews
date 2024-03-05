@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useBookDataUpdate } from "../../hooks/useBookDataUpdate";
 import { BookData } from "../../interface/BookData";
 import "./modal.css";
+import { useBookData } from "../../hooks/useBookData";
 interface InputProps {
   label: string;
   value: string | number;
   updateValue(value: any | number): void;
 }
 interface ModalProps {
+  idBook: number;
   closeModal(): void;
 }
 
@@ -23,19 +25,21 @@ const Input = ({ label, value, updateValue }: InputProps) => {
   );
 };
 
-export function UpdateModal({ closeModal }: ModalProps) {
+export function UpdateModal({idBook, closeModal }: ModalProps) {
+  const [id, setId] = useState(idBook);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const { mutate, isSuccess } = useBookDataUpdate();
 
-  console.log(name);
   const update = () => {
     const bookData: BookData = { 
+      id,
       name,
       description,
       image
     }
+    console.log("é o update",bookData);
     mutate(bookData);
   }
   
@@ -61,6 +65,7 @@ export function UpdateModal({ closeModal }: ModalProps) {
           {/* {isLoading ? "Postando..." : "Postar"} */}
           Update
         </button>
+        <button onClick={closeModal} className="btn-secondary">Cancel</button>
       </div>
     </div>
   );

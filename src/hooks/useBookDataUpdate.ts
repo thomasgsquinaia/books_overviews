@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 const API_URL = 'http://localhost:8080';
 
 const putData = async (data: BookData): AxiosPromise<any> => {
-    const response = axios.put(`${API_URL}/books`, data)
+    const response = await axios.put(`${API_URL}/books`, data)
     console.log(response);
     return response;
 }
