@@ -1,5 +1,7 @@
-import { BookData } from "../../interface/BookData"
+import { useState } from "react";
+import { useBookDataUpdate } from "../../hooks/useBookDataUpdate"
 import "./card.css"
+import { UpdateModal } from "../updateModal/updateModal";
 
 interface CardProps { 
   name: string,
@@ -8,14 +10,12 @@ interface CardProps {
 }
 
 export function Card({name, description, image} : CardProps) {
+  const { data } = useBookDataUpdate();
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  console.log(data);
 
-  const update = () => {
-    const bookData: BookData = { 
-      name,
-      description,
-      image,
-    }
-    mutate(bookData);
+  const handleOpenModal = () => { 
+    setIsModalOpen(prev => !(prev))
   }
 
   return (
@@ -24,7 +24,10 @@ export function Card({name, description, image} : CardProps) {
         <h2>{name}</h2>
         <p><b>Descrição:</b>{description}</p>
         <div className="operations">
-          <p className="edit-book">Editar</p>
+          {isModalOpen && <UpdateModal closeModal={handleOpenModal}/>}
+          <p onClick={handleOpenModal} className="edit-book">Editar</p>
+          
+          {/* {isModalOpen && <DeleteModal closeModal={handleOpenModal}/>} */}
           <p className="remove-book">Excluir</p>
         </div>
     </div>
