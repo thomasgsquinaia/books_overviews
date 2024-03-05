@@ -1,3 +1,4 @@
+import { BookData } from "../../interface/BookData"
 import "./card.css"
 
 interface CardProps { 
@@ -7,6 +8,16 @@ interface CardProps {
 }
 
 export function Card({name, description, image} : CardProps) {
+
+  const update = () => {
+    const bookData: BookData = { 
+      name,
+      description,
+      image,
+    }
+    mutate(bookData);
+  }
+
   return (
     <div className="card">
         <img src={image} alt="" />
