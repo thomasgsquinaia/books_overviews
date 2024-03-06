@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./card.css"
 import { UpdateModal } from "../updateModal/updateModal";
+import { DeleteModal } from "../deleteModal/deleteModal";
 
 interface CardProps { 
   name: string,
@@ -24,8 +25,8 @@ export function Card({name, description, image} : CardProps) {
           {isModalOpen && <UpdateModal closeModal={handleOpenModal}/>}
           <p onClick={handleOpenModal} className="edit-book">Editar</p>
           
-          {/* {isModalOpen && <DeleteModal closeModal={handleOpenModal}/>} */}
-          <p className="remove-book">Excluir</p>
+          {isModalOpen && <DeleteModal closeModal={handleOpenModal}/>}
+          <p onClick={handleOpenModal} className="remove-book">Excluir</p>
         </div>
     </div>
   )

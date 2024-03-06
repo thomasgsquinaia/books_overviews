@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useBookDataUpdate } from "../../hooks/useBookDataUpdate";
+import { useBookDataDelete } from "../../hooks/useBookDataDelete";
 import { BookData } from "../../interface/BookData";
 import "./modal.css";
 interface InputProps {
@@ -23,13 +23,13 @@ const Input = ({ label, value, updateValue }: InputProps) => {
   );
 };
 
-export function UpdateModal({ closeModal }: ModalProps) {
+export function DeleteModal({ closeModal }: ModalProps) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
-  const { mutate, isSuccess } = useBookDataUpdate();
+  const { mutate, isSuccess } = useBookDataDelete();
 
-  const update = () => {
+  const deleteBook = () => {
     const bookData: BookData = {
       name,
       description,
@@ -46,7 +46,7 @@ export function UpdateModal({ closeModal }: ModalProps) {
   return (
     <div className="modal-overlay">
       <div className="modal-body">
-        <h2>Update overview</h2>
+        <h2>Delete overview</h2>
         <form className="input-container">
           <Input label="name" value={name} updateValue={setName} />
           <Input
@@ -56,7 +56,7 @@ export function UpdateModal({ closeModal }: ModalProps) {
           />
           <Input label="image" value={image} updateValue={setImage} />
         </form>
-        <button onClick={update} className="btn-secondary">Update</button>
+        <button onClick={deleteBook} className="btn-secondary">Delete</button>
         <button onClick={closeModal} className="btn-secondary">Cancel</button>
       </div>
     </div>
