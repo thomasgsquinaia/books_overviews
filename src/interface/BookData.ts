@@ -5,3 +5,7 @@ export interface BookData {
     image: string,
     active?: boolean
 }
+
+export interface DeleteBookData {
+    id: number
+} 

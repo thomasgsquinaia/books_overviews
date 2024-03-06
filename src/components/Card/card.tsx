@@ -4,12 +4,13 @@ import { UpdateModal } from "../updateModal/updateModal";
 import { DeleteModal } from "../deleteModal/deleteModal";
 
 interface CardProps { 
+  id?: number,
   name: string,
   description: string
   image: string,
 }
 
-export function Card({name, description, image} : CardProps) {
+export function Card({ id, name, description, image} : CardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleOpenModal = () => { 
@@ -23,10 +24,10 @@ export function Card({name, description, image} : CardProps) {
         <p><b>Descrição:</b>{description}</p>
         <div className="operations">
           {isModalOpen && <UpdateModal closeModal={handleOpenModal}/>}
-          <p onClick={handleOpenModal} className="edit-book">Editar</p>
+          <p onClick={handleOpenModal} className="edit-book">Edit</p>
           
-          {isModalOpen && <DeleteModal closeModal={handleOpenModal}/>}
-          <p onClick={handleOpenModal} className="remove-book">Excluir</p>
+          {isModalOpen && <DeleteModal bookId={id} closeModal={handleOpenModal}/>}
+          <p onClick={handleOpenModal} className="remove-book">Delete</p>
         </div>
     </div>
   )

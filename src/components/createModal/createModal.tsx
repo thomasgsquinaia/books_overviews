@@ -39,9 +39,6 @@ export function CreateModal({ closeModal }: ModalProps) {
     mutate(bookData);
   };
 
-  // const backPath = () => {
-  // };
-
   useEffect(() => {
     if (!isSuccess) return;
     closeModal();
