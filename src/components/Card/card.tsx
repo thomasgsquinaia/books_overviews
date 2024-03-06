@@ -11,10 +11,15 @@ interface CardProps {
 }
 
 export function Card({ id, name, description, image} : CardProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpenUpdate, setIsModalOpenUpdate] = useState(false)
+  const [isModalOpenDelete, setIsModalOpenDelete] = useState(false)
 
-  const handleOpenModal = () => { 
-    setIsModalOpen(prev => !(prev))
+  const handleOpenModalUpdate = () => { 
+    setIsModalOpenUpdate(prev => !(prev))
+  }
+
+  const handleOpenModalDelete = () => { 
+    setIsModalOpenDelete(prev => !(prev))
   }
 
   return (
@@ -23,11 +28,11 @@ export function Card({ id, name, description, image} : CardProps) {
         <h2>{name}</h2>
         <p><b>Descrição:</b>{description}</p>
         <div className="operations">
-          {isModalOpen && <UpdateModal closeModal={handleOpenModal}/>}
-          <p onClick={handleOpenModal} className="edit-book">Edit</p>
+          {isModalOpenUpdate && <UpdateModal closeModal={handleOpenModalUpdate}/>}
+          <p onClick={handleOpenModalUpdate} className="edit-book">Edit</p>
           
-          {isModalOpen && <DeleteModal bookId={id} closeModal={handleOpenModal}/>}
-          <p onClick={handleOpenModal} className="remove-book">Delete</p>
+          {isModalOpenDelete && <DeleteModal bookId={id} closeModal={handleOpenModalDelete}/>}
+          <p onClick={handleOpenModalDelete} className="remove-book">Delete</p>
         </div>
     </div>
   )

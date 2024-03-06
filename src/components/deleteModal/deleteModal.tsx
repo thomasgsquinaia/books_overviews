@@ -3,7 +3,7 @@ import { useBookDataDelete } from "../../hooks/useBookDataDelete";
 // import { DeleteBookData } from "../../interface/BookData";
 import "./modal.css";
 interface ModalProps {
-  bookId: number;
+  bookId: number | any;
   closeModal(): void;
 }
 
