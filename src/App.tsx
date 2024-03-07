@@ -16,7 +16,7 @@ function App() {
       <h1>Overviews</h1>
       <div className="card-grid">
         {data?.map(bookData => 
-        <Card 
+        <Card
           id={bookData.id}
           name={bookData.name} 
           description={bookData.description} 

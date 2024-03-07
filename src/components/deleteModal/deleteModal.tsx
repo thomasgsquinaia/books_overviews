@@ -17,11 +17,11 @@ export function DeleteModal({ bookId, closeModal }: ModalProps) {
   useEffect(() => {
     if (!isSuccess) return;
     closeModal();
-  }, [isSuccess]);
+  }, [isSuccess, closeModal]);
 
   return (
     <div className="modal-overlay">
-      <div className="modal-body">
+      <div className="modal-body delete">
         <button onClick={deleteBook} className="btn-secondary">Delete</button>
         <button onClick={closeModal} className="btn-secondary">Cancel</button>
       </div>
