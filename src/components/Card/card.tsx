@@ -28,10 +28,10 @@ export function Card({ id, name, description, image} : CardProps) {
         <h2>{name}</h2>
         <p><b>Descrição:</b>{description}</p>
         <div className="operations">
-          {isModalOpenUpdate && <UpdateModal closeModal={handleOpenModalUpdate}/>}
+          {isModalOpenUpdate && id && <UpdateModal bookInfo={{id,name,description,image}} closeModal={handleOpenModalUpdate}/>}
           <p onClick={handleOpenModalUpdate} className="edit-book">Edit</p>
           
-          {isModalOpenDelete && <DeleteModal bookId={id} closeModal={handleOpenModalDelete}/>}
+          {isModalOpenDelete && id && <DeleteModal bookId={id} closeModal={handleOpenModalDelete}/>}
           <p onClick={handleOpenModalDelete} className="remove-book">Delete</p>
         </div>
     </div>

@@ -6,6 +6,13 @@ export interface BookData {
     active?: boolean
 }
 
+export interface UpdateBookData {
+    id: number,
+    name: string,
+    description:string,
+    image: string,
+}
+
 export interface DeleteBookData {
     id: number
 } 

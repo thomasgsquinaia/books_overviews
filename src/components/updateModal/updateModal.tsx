@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useBookDataUpdate } from "../../hooks/useBookDataUpdate";
-import { BookData } from "../../interface/BookData";
+import { UpdateBookData } from "../../interface/BookData";
 import "./modal.css";
 interface InputProps {
   label: string;
@@ -8,6 +8,7 @@ interface InputProps {
   updateValue(value: any | number): void;
 }
 interface ModalProps {
+  bookInfo: UpdateBookData;
   closeModal(): void;
 }
 
@@ -23,14 +24,16 @@ const Input = ({ label, value, updateValue }: InputProps) => {
   );
 };
 
-export function UpdateModal({ closeModal }: ModalProps) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
+export function UpdateModal({ bookInfo ,closeModal }: ModalProps) {
+
+  const [name, setName] = useState(bookInfo.name);
+  const [description, setDescription] = useState(bookInfo.description);
+  const [image, setImage] = useState(bookInfo.image);
   const { mutate, isSuccess } = useBookDataUpdate();
 
   const update = () => {
-    const bookData: BookData = {
+    const bookData: UpdateBookData = {
+      id:bookInfo.id,
       name,
       description,
       image
@@ -41,7 +44,7 @@ export function UpdateModal({ closeModal }: ModalProps) {
   useEffect(() => {
     if (!isSuccess) return;
     closeModal();
-  }, [isSuccess]);
+  }, [isSuccess,closeModal]);
 
   return (
     <div className="modal-overlay">
