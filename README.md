@@ -1,4 +1,4 @@
-# Nice Chat
+# Book Overviews
 
 <p align="center">
     <img src="./.github/image/books-list.png" alt="books-list" width="1200px">
