@@ -3,6 +3,7 @@ import './App.css'
 import { Card } from './components/Card/card'
 import { useBookData } from './hooks/useBookData';
 import { CreateModal } from './components/createModal/createModal';
+import ImgUrl from './assets/images/backeground-books.jpg';
 
 function App() {
   const { data } = useBookData();
@@ -12,7 +13,7 @@ function App() {
     setIsModalOpen(prev => !(prev))
   }
   return (
-    <div className='container'>
+    <div style={{backgroundImage: `url(${ImgUrl})`, backgroundSize: '595px'}} className='container'>
       <h1>Overviews</h1>
       <div className="card-grid">
         {data?.map(bookData => 

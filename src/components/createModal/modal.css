@@ -16,8 +16,8 @@
 .modal-overlay .modal-body {
     background-color: white;
     padding: 24px;
-    height: 90%;
-    width: 60%;
+    height: 500px;
+    width: 500px;
     border-radius: 24px;
 
     display: flex;
@@ -49,13 +49,13 @@
     color: #242424;
     font-weight: 600;
     margin-bottom: 8px;
-    font-size: 18px;
 }
 
 .modal-overlay .modal-body .btn-secondary {
     position: initial;
     width: 100%;
     margin-top: 32px;
+    font-size: 26px;
 }
 
 .modal-overlay .modal-body .btn-secondary:hover {
