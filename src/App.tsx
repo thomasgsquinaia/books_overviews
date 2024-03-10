@@ -23,7 +23,7 @@ function App() {
           image={bookData.image}/>
         )}
         {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
-        <button onClick={handleOpenModal}>Create</button>
+        <button onClick={handleOpenModal}>+</button>
       </div>
     </div>
   )

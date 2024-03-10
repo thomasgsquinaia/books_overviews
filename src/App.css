@@ -14,7 +14,7 @@ body {
 }
 
 .container h1 {
-    background-color: rgba(111, 111, 111, 0.961);
+    background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     padding: 10px;
     border-radius: 10px;
@@ -31,9 +31,7 @@ body {
     border-radius: 10px;
     color: white;
     font-weight: bold;
-    position: fixed;
-    bottom: 16px;
-    right: 24px;
+    position: relative;
     font-size: 36px;
     transition: all 0.1s linear 0.1s;
 }
