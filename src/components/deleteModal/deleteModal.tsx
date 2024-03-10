@@ -22,6 +22,7 @@ export function DeleteModal({ bookId, closeModal }: ModalProps) {
   return (
     <div className="modal-overlay">
       <div className="modal-body delete">
+        <h2>Are you sure?</h2>
         <button onClick={deleteBook} className="btn-secondary">Delete</button>
         <button onClick={closeModal} className="btn-secondary">Cancel</button>
       </div>

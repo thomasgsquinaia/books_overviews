@@ -26,7 +26,7 @@ export function Card({ id, name, description, image} : CardProps) {
     <div className="card">
         <img src={image} alt="" />
         <h2>{name}</h2>
-        <p><b>Descrição:</b>{description}</p>
+        <p><b>Description:</b>{description}</p>
         <div className="operations">
           {isModalOpenUpdate && id && <UpdateModal bookInfo={{id,name,description,image}} closeModal={handleOpenModalUpdate}/>}
           <p onClick={handleOpenModalUpdate} className="edit-book">Edit</p>
