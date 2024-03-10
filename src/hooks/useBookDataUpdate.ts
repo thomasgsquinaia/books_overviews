@@ -6,7 +6,6 @@ const API_URL = 'http://localhost:8080';
 
 const putData = async (data: UpdateBookData): AxiosPromise<any> => {
     const response = await axios.put(`${API_URL}/books`, data)
-    console.log(response);
     return response;
 }
 

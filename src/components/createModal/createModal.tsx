@@ -35,7 +35,6 @@ export function CreateModal({ closeModal }: ModalProps) {
       description,
       image,
     };
-    console.log(bookData);
     mutate(bookData);
   };
 

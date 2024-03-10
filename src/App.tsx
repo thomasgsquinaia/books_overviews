@@ -7,7 +7,6 @@ import { CreateModal } from './components/createModal/createModal';
 function App() {
   const { data } = useBookData();
   const [isModalOpen, setIsModalOpen] = useState(false)
-  console.log(data);
   const handleOpenModal = () => {
     setIsModalOpen(prev => !(prev))
   }

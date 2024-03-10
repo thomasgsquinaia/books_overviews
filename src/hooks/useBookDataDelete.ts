@@ -5,9 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 const API_URL = 'http://localhost:8080';
 
 const deleteData = async (bookId: number): AxiosPromise<any> => {
-    console.log(bookId);
     const response = await axios.delete(`${API_URL}/books/${bookId}`)
-    console.log(response);
     return response;
 }
 
